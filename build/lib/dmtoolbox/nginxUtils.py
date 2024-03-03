@@ -1,18 +1,18 @@
-
 import subprocess
 import os
 import re
+import platform
 
 if __package__ is None or __package__ == '':
     from dmtoolbox.portTools import *
     from dmtoolbox.nginxDefaults import *
     from dmtoolbox.osFuncs import *
-    from dmtoolbox.appdataGen import *
+    
 else:
     from .portTools import *
     from .nginxDefaults import *
     from .osFuncs import *
-    from .appdataGen import *
+
     
     
 
@@ -24,12 +24,20 @@ __all__ = ['start_nginx', 'stop_nginx', 'is_nginx_running', 'setup_nginx']
 # Variables
 __all__ += ['NGINX_ROOT_PATH']
 
+
+system_plat = platform.system()
+    
+if system_plat == 'Windows':
+    # MODIFY
+    # Estou setando o caminho aqui na pasta do projeto, mas ao levar pra prod modificar para standard
+    
+    APPDATA_DIR = os.path.join(os.getenv('USERPROFILE'), 'AppData', 'LocalLow')
+    NGINX_ROOT_PATH = os.path.join(APPDATA_DIR, 'nginx-1.24.0')
+    NGINX_CONF_PATH = os.path.join(NGINX_ROOT_PATH, 'conf', 'nginx.conf')
+else:
+    NGINX_ROOT_PATH = '/etc/nginx/sites-available'
     
 
-# MODIFY
-# Estou setando o caminho aqui na pasta do projeto, mas ao levar pra prod modificar para standard
-NGINX_ROOT_PATH = os.path.join(APPDATA_DIR, 'nginx-1.24.0')
-NGINX_CONF_PATH = os.path.join(NGINX_ROOT_PATH, 'conf', 'nginx.conf')
 
 
 FOUND_DIRECTIVES = {}
@@ -108,13 +116,8 @@ def is_nginx_running():
         # Em caso de erro ao chamar o processo, assume que o Nginx não está em execução
         return False
      
-def check_nginx_config():
-    global HOST_MAPPING
-    global NGINX_CONF_PATH
-    global AVAILABLE_PORT
-    
-    hostname = HOST_MAPPING
-    nginx_conf_path = NGINX_CONF_PATH
+def check_nginx_config(conf_name=''):
+    nginx_conf_path = os.path.join(NGINX_CONF_PATH, conf_name)
     available_port = AVAILABLE_PORT
     
     if not os.path.exists(nginx_conf_path):
@@ -141,7 +144,7 @@ def check_nginx_config():
                         if argument:
                             if directive == 'listen' and '80' in argument[0]:
                                 found_directives[directive] = True
-                            elif directive == 'server_name' and hostname in argument[0]:
+                            elif directive == 'server_name'in argument[0]:
                                 found_directives[directive] = True
                             elif directive == 'proxy_pass':
                                 proxy_port_match = re.search(r'http://\d+\.\d+\.\d+\.\d+:(\d+);', line)
@@ -168,17 +171,11 @@ def is_nginx_configured():
     else:
         return False
 
-def is_nginx_default_config():
-    global NGINX_CONF_PATH
-    global NGINX_WIN_DEFAULT
-    
-    return is_actual_Config_iquals_expected(NGINX_WIN_DEFAULT, NGINX_CONF_PATH)
+def is_nginx_default_config(conf_name=''):
+    return is_actual_Config_iquals_expected(NGINX_WIN_DEFAULT, os.path.join(NGINX_CONF_PATH, conf_name))
 
-def is_nginx_util_config():
-    global NGINX_CONF_PATH
-    global NGINX_UTIL
-    
-    return is_actual_Config_iquals_expected(NGINX_UTIL, NGINX_CONF_PATH)
+def is_nginx_util_config(conf_name=''):
+    return is_actual_Config_iquals_expected(NGINX_UTIL, os.path.join(NGINX_CONF_PATH, conf_name))
 
 def is_actual_Config_iquals_expected(expected_config, path_file):
     
@@ -197,11 +194,8 @@ def is_nginx_blank_config():
     # Verifica se a configuração do NGINX está vazia
     return not NGINX_UTIL.strip()  # Se a configuração estiver vazia, retorna True; caso contrário, retorna False
 
-def create_nginx_util_config():
-    global NGINX_CONF_PATH
-    global NGINX_UTIL
-    
-    nginx_conf_path = NGINX_CONF_PATH
+def create_nginx_util_config(conf_name=''):
+    nginx_conf_path = os.path.join(NGINX_CONF_PATH, conf_name)
 
 
     try: 

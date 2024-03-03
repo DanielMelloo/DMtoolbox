@@ -1,4 +1,4 @@
-
+**
 ![GitHub repo size](https://img.shields.io/github/repo-size/DanielMelloo/dmtoolbox?style=for-the-badge)
 ![GitHub forks](https://img.shields.io/github/forks/DanielMelloo/dmtoolbox?style=for-the-badge)
 ![Bitbucket open issues ](https://img.shields.io/bitbucket/issues/DanielMelloo/dmtoolbox?style=for-the-badge)
@@ -12,16 +12,12 @@
   - [Descrição](#descrição)
   - [Funcionalidades](#funcionalidades)
   - [Funcionalidades dos Módulos](#funcionalidades-dos-módulos)
-    - [appdataGen.py](#appdatagenpy)
-    - [createExeOnC.py](#createexeoncpy)
-    - [exeGenerator.py](#exegeneratorpy)
     - [func.py](#funcpy)
     - [genJsons.py](#genjsonspy)
     - [nginxDefaults.py  e nginxUtils.py](#nginxdefaultspy--e-nginxutilspy)
     - [numericFuncs.py](#numericfuncspy)
     - [osFuncs.py](#osfuncspy)
     - [portTools.py](#porttoolspy)
-    - [regedit.py](#regeditpy)
   - [Instalação do Pacote dmtoolbox](#instalação-do-pacote-dmtoolbox)
     - [Pré-Requisitos](#pré-requisitos)
     - [Passo 1: Criação de um Ambiente Virtual (Opcional, mas Recomendado)](#passo-1-criação-de-um-ambiente-virtual-opcional-mas-recomendado)
@@ -40,7 +36,7 @@ Este pacote Python é uma coleção abrangente de ferramentas projetadas para fa
 
 ## Funcionalidades
 - **Gerenciamento de Arquivos e Diretórios**: Criação e manipulação de estruturas de arquivos no AppData e outras localizações, com suporte para operações que requerem privilégios elevados.
-- **Criação de Executáveis**: Utilitários para transformar scripts Python em executáveis independentes, facilitando a distribuição e execução.
+
 - **Manipulação de JSON**: Ferramentas para converter dados para e de JSON, e atualizar scripts com novas declarações de variáveis baseadas em conteúdo JSON.
 - **Gerenciamento do NGINX**: Funcionalidades para configurar, iniciar, parar e reiniciar o servidor NGINX, além de verificar e ajustar configurações de acordo com as necessidades do usuário.
 - **Análise Numérica e Visualização**: Funções para manipulação matemática avançada, incluindo operações com matrizes, geração de tabelas formatadas, e plotagem de gráficos 2D e 3D.
@@ -52,17 +48,6 @@ Este pacote Python é uma coleção abrangente de ferramentas projetadas para fa
 ## Funcionalidades dos Módulos
 Cada módulo traz um conjunto de funcionalidades específicas, detalhadas a seguir:
 
-
-
-### [appdataGen.py](https://github.com/DanielMelloo/dmtoolbox/blob/main/dmtoolbox/appdataGen.py)
-- Gerencia arquivos e diretórios no AppData LocalLow, permitindo a criação personalizada de estruturas de diretórios e arquivos de configuração.
-
-### [createExeOnC.py](https://github.com/DanielMelloo/dmtoolbox/blob/main/dmtoolbox/createExeOnC.py)
-
-- Facilita a criação de cópias da aplicação no disco local C, útil para a distribuição de software ou instalação local rápida.
-
-### [exeGenerator.py](https://github.com/DanielMelloo/dmtoolbox/blob/main/dmtoolbox/exeGenerator.py)
-- Utiliza o PyInstaller para converter scripts Python em executáveis autônomos, simplificando a distribuição de aplicações.
 
 ### [func.py](https://github.com/DanielMelloo/dmtoolbox/blob/main/dmtoolbox/func.py)
 - Oferece um conjunto diversificado de funções utilitárias para operações comuns, como manipulação de datas, tamanhos de arquivos, e caminhos de diretórios.
@@ -81,9 +66,6 @@ Cada módulo traz um conjunto de funcionalidades específicas, detalhadas a segu
 
 ### [portTools.py](https://github.com/DanielMelloo/dmtoolbox/blob/main/dmtoolbox/portTools.py)
 - Fornece métodos para verificar a disponibilidade de portas TCP/IP e selecionar portas disponíveis para aplicações.
-
-### [regedit.py](https://github.com/DanielMelloo/dmtoolbox/blob/main/dmtoolbox/regedit.py)
-- Permite a criação e gerenciamento de entradas de registro do Windows, facilitando a integração com o sistema operacional.
 
 
 
@@ -136,8 +118,6 @@ pip install -r requirements.txt
 Em seguida, clone o repositório do GitHub ou baixe os arquivos do projeto diretamente para o seu ambiente de trabalho.
 
 
-
-
 ## Exemplos de Uso
 Para cada módulo, exemplos detalhados de uso são fornecidos na documentação interna. Estes exemplos abrangem desde a criação de diretórios no AppData até a configuração avançada do NGINX e análise numérica com visualização de dados.
 
@@ -156,4 +136,4 @@ Encorajamos contribuições! Se deseja sugerir melhorias, corrigir bugs ou adici
 Este projeto é licenciado sob a GNU General Public License v3.0 - veja o arquivo [LICENSE](LICENSE) para mais detalhes.
 
 
-[⬆ Voltar ao topo](#dmtoolbox)
+[⬆ Voltar ao topo](#dmtoolbox)**

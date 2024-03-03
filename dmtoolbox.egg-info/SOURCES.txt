@@ -2,9 +2,6 @@ LICENSE
 README.md
 setup.py
 dmtoolbox/__init__.py
-dmtoolbox/appdataGen.py
-dmtoolbox/createExeOnC.py
-dmtoolbox/exeGenerator.py
 dmtoolbox/func.py
 dmtoolbox/genJsons.py
 dmtoolbox/nginxDefaults.py
@@ -12,7 +9,6 @@ dmtoolbox/nginxUtils.py
 dmtoolbox/numericFuncs.py
 dmtoolbox/osFuncs.py
 dmtoolbox/portTools.py
-dmtoolbox/regedit.py
 dmtoolbox.egg-info/PKG-INFO
 dmtoolbox.egg-info/SOURCES.txt
 dmtoolbox.egg-info/dependency_links.txt

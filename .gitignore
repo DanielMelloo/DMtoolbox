@@ -11,6 +11,8 @@ nomes.txt
 a.txt
 token.txt
 main.py
+comandos.txt
+
 
 # Outros arquivos que geralmente são ignorados
 .DS_Store
