@@ -1,8 +1,8 @@
 
 ![GitHub repo size](https://img.shields.io/github/repo-size/DanielMelloo/dmtoolbox?style=for-the-badge)
 ![GitHub forks](https://img.shields.io/github/forks/DanielMelloo/dmtoolbox?style=for-the-badge)
-![Bitbucket open issues](https://img.shields.io/bitbucket/issues-raw/DanielMelloo/dmtoolbox?style=for-the-badge)
-![Bitbucket open pull requests](https://img.shields.io/bitbucket/pr-raw/DanielMelloo/dmtoolbox?style=for-the-badge)
+![Bitbucket open issues ](https://img.shields.io/bitbucket/issues/DanielMelloo/dmtoolbox?style=for-the-badge)
+![Bitbucket open pull requests ](https://img.shields.io/bitbucket/pr/DanielMelloo/dmtoolbox?style=for-the-badge)  
 
 
 # dmtoolbox
