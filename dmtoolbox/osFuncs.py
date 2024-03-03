@@ -32,6 +32,7 @@ def get_script_directory():
 
 DIR_PATH = get_script_directory()
 
+
 def is_admin():
     os_name = platform.system()
     
@@ -45,6 +46,7 @@ def is_admin():
             return os.getuid() == 0
         except AttributeError:
             return False
+    
     
 def raise_admin():
     if not is_admin():

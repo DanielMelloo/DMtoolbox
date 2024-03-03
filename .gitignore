@@ -1,5 +1,6 @@
 # Ambiente virtual
 pkg_dev/
+pkg_prod/
 *.pyc
 __pycache__/
 

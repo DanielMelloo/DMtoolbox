@@ -1,10 +1,10 @@
 Metadata-Version: 2.1
 Name: dmtoolbox
-Version: 0.10
+Version: 0.11
 Summary: dmtoolbox é uma coleção abrangente de ferramentas Python projetadas para facilitar a automação de tarefas e operações no ambiente Windows, manipulação avançada de arquivos e diretórios, criação e gestão de executáveis, manipulação de dados JSON, gerenciamento de configurações NGINX, análise numérica, e muito mais.
 Home-page: https://github.com/danielmello/dmtoolbox
 Author: Daniel Mello
-Author-email: danielmello.dev@example.com
+Author-email: danielmello.dev@gmail.com
 License: GPLv3
 Keywords: utils automation numpy pandas matplotlib
 Classifier: Development Status :: 3 - Alpha
@@ -30,8 +30,8 @@ Requires-Dist: pyinstaller==6.4.0
 
 ![GitHub repo size](https://img.shields.io/github/repo-size/DanielMelloo/dmtoolbox?style=for-the-badge)
 ![GitHub forks](https://img.shields.io/github/forks/DanielMelloo/dmtoolbox?style=for-the-badge)
-![Bitbucket open issues](https://img.shields.io/bitbucket/issues-raw/DanielMelloo/dmtoolbox?style=for-the-badge)
-![Bitbucket open pull requests](https://img.shields.io/bitbucket/pr-raw/DanielMelloo/dmtoolbox?style=for-the-badge)
+![Bitbucket open issues ](https://img.shields.io/bitbucket/issues/DanielMelloo/dmtoolbox?style=for-the-badge)
+![Bitbucket open pull requests ](https://img.shields.io/bitbucket/pr/DanielMelloo/dmtoolbox?style=for-the-badge)  
 
 
 # dmtoolbox
@@ -46,7 +46,7 @@ Requires-Dist: pyinstaller==6.4.0
     - [exeGenerator.py](#exegeneratorpy)
     - [func.py](#funcpy)
     - [genJsons.py](#genjsonspy)
-    - [nginxDefaults.py  e .pynginxDefaults.py](#nginxdefaultspy--e-pynginxdefaultspy)
+    - [nginxDefaults.py  e nginxUtils.py](#nginxdefaultspy--e-nginxutilspy)
     - [numericFuncs.py](#numericfuncspy)
     - [osFuncs.py](#osfuncspy)
     - [portTools.py](#porttoolspy)
@@ -90,7 +90,7 @@ Cada módulo traz um conjunto de funcionalidades específicas, detalhadas a segu
 
 - Facilita a criação de cópias da aplicação no disco local C, útil para a distribuição de software ou instalação local rápida.
 
-### exeGenerator.py
+### [exeGenerator.py](https://github.com/DanielMelloo/dmtoolbox/blob/main/dmtoolbox/exeGenerator.py)
 - Utiliza o PyInstaller para converter scripts Python em executáveis autônomos, simplificando a distribuição de aplicações.
 
 ### [func.py](https://github.com/DanielMelloo/dmtoolbox/blob/main/dmtoolbox/func.py)
@@ -99,7 +99,7 @@ Cada módulo traz um conjunto de funcionalidades específicas, detalhadas a segu
 ### [genJsons.py](https://github.com/DanielMelloo/dmtoolbox/blob/main/dmtoolbox/genJsons.py)
 - Permite a conversão eficiente de dados para o formato JSON e vice-versa, além da atualização dinâmica de scripts com novos dados JSON.
 
-### [nginxDefaults.py](https://github.com/DanielMelloo/dmtoolbox/blob/main/dmtoolbox/nginxDefaults.py)  e .py[nginxDefaults.py](https://github.com/DanielMelloo/dmtoolbox/blob/main/dmtoolbox/nginxDefaults.py) 
+### [nginxDefaults.py](https://github.com/DanielMelloo/dmtoolbox/blob/main/dmtoolbox/nginxDefaults.py)  e [nginxUtils.py](https://github.com/DanielMelloo/dmtoolbox/blob/main/dmtoolbox/nnginxUtils.py) 
 - Proporcionam ferramentas para o gerenciamento detalhado de configurações do servidor NGINX, incluindo inicialização, parada, e verificação de status.
 
 ### [numericFuncs.py](https://github.com/DanielMelloo/dmtoolbox/blob/main/dmtoolbox/numericFuncs.py)

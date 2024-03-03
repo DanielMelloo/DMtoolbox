@@ -11,7 +11,7 @@ else:
     
 
 # Functions
-__all__ =  ['create_appdata_folder', 'create_appdata_inner_folder', 'save_json_to_file', 'create_appdata', 'create_file_in_directory']
+__all__ =  ['create_appdata_folder', 'create_appdata_inner_folder', 'save_json_to_file', 'create_file_in_directory']
 
 
 # Variables
@@ -97,12 +97,6 @@ def create_file_in_directory(directory_path, file_name, content=None):
         print(f"Arquivo '{file_name}' criado com sucesso em: {directory_path}")
     except Exception as e:
         print(f"Erro ao criar o arquivo '{file_name}' em '{directory_path}': {e}")
-        
-def elevate_privileges():
-    """Solicita elevação de privilégios se não estiver sendo executado como administrador."""
-    if not is_admin():
-        ctypes.windll.shell32.ShellExecuteW(None, "runas", sys.executable, " ".join(sys.argv), None, 1)
-        sys.exit()
 
 def create_directory(directory_path):
     """Cria um diretório se ele não existir."""
