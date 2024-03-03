@@ -1,8 +1,8 @@
 
-![GitHub repo size](https://img.shields.io/github/repo-size/DanielMelloo/SpecMatch?style=for-the-badge)
-![GitHub forks](https://img.shields.io/github/forks/DanielMelloo/SpecMatch?style=for-the-badge)
-![Bitbucket open issues](https://img.shields.io/bitbucket/issues-raw/DanielMelloo/SpecMatch?style=for-the-badge)
-![Bitbucket open pull requests](https://img.shields.io/bitbucket/pr-raw/DanielMelloo/SpecMatch?style=for-the-badge)
+![GitHub repo size](https://img.shields.io/github/repo-size/DanielMelloo/DMtoolbox?style=for-the-badge)
+![GitHub forks](https://img.shields.io/github/forks/DanielMelloo/DMtoolbox?style=for-the-badge)
+![Bitbucket open issues](https://img.shields.io/bitbucket/issues-raw/DanielMelloo/DMtoolbox?style=for-the-badge)
+![Bitbucket open pull requests](https://img.shields.io/bitbucket/pr-raw/DanielMelloo/DMtoolbox?style=for-the-badge)
 
 
 # DMutils
@@ -53,7 +53,7 @@ Este pacote Python é uma coleção abrangente de ferramentas projetadas para fa
 Cada módulo traz um conjunto de funcionalidades específicas, detalhadas a seguir:
 
 
-### [appdataGen.py](https://danielmelloo.github.io/)
+### [appdataGen.py](https://github.com/DanielMelloo/DMtoolbox/blob/main/DMtoolBox/appdataGen.py)
 - Gerencia arquivos e diretórios no AppData LocalLow, permitindo a criação personalizada de estruturas de diretórios e arquivos de configuração.
 
 ### createExeOnC.py
