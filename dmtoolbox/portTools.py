@@ -6,10 +6,8 @@ import subprocess
 
 if __package__ is None or __package__ == '':
     from dmtoolbox.osFuncs import *
-    from dmtoolbox.appdataGen import *
 else:
     from .osFuncs import *
-    from .appdataGen import *
 
 
 

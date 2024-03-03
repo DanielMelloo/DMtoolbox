@@ -5,7 +5,7 @@ with open('README.md', encoding='utf-8') as f:
     long_description = f.read()
 
 setup(
-    name='dmtoolbox',
+    name='win-dmtoolbox',
     version='0.1.21',
     packages=find_packages(),
     description='dmtoolbox é uma coleção abrangente de ferramentas Python projetadas para facilitar a automação de tarefas e operações no ambiente Windows, manipulação avançada de arquivos e diretórios, criação e gestão de executáveis, manipulação de dados JSON, gerenciamento de configurações NGINX, análise numérica, e muito mais.',
