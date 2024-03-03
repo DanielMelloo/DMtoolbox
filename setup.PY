@@ -12,7 +12,7 @@ setup(
     long_description=long_description,
     long_description_content_type='text/markdown',
     author='Daniel Mello',
-    author_email='danielmello.dev@example.com',
+    author_email='danielmello.dev@gmail.com',
     license='GPLv3',
     install_requires=[
         'pandas==2.2.1',
@@ -38,3 +38,4 @@ setup(
     ],
     keywords='utils automation numpy pandas matplotlib',
 )
+
