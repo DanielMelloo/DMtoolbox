@@ -17,7 +17,7 @@
     - [exeGenerator.py](#exegeneratorpy)
     - [func.py](#funcpy)
     - [genJsons.py](#genjsonspy)
-    - [nginxDefaults.py  e .pynginxDefaults.py](#nginxdefaultspy--e-pynginxdefaultspy)
+    - [nginxDefaults.py  e nginxUtils.py](#nginxdefaultspy--e-nginxutilspy)
     - [numericFuncs.py](#numericfuncspy)
     - [osFuncs.py](#osfuncspy)
     - [portTools.py](#porttoolspy)
@@ -70,7 +70,7 @@ Cada módulo traz um conjunto de funcionalidades específicas, detalhadas a segu
 ### [genJsons.py](https://github.com/DanielMelloo/dmtoolbox/blob/main/dmtoolbox/genJsons.py)
 - Permite a conversão eficiente de dados para o formato JSON e vice-versa, além da atualização dinâmica de scripts com novos dados JSON.
 
-### [nginxDefaults.py](https://github.com/DanielMelloo/dmtoolbox/blob/main/dmtoolbox/nginxDefaults.py)  e .py[nginxDefaults.py](https://github.com/DanielMelloo/dmtoolbox/blob/main/dmtoolbox/nginxDefaults.py) 
+### [nginxDefaults.py](https://github.com/DanielMelloo/dmtoolbox/blob/main/dmtoolbox/nginxDefaults.py)  e [nginxUtils.py](https://github.com/DanielMelloo/dmtoolbox/blob/main/dmtoolbox/nnginxUtils.py) 
 - Proporcionam ferramentas para o gerenciamento detalhado de configurações do servidor NGINX, incluindo inicialização, parada, e verificação de status.
 
 ### [numericFuncs.py](https://github.com/DanielMelloo/dmtoolbox/blob/main/dmtoolbox/numericFuncs.py)
