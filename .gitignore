@@ -10,6 +10,7 @@ del.txt
 nomes.txt
 a.txt
 token.txt
+main.py
 
 # Outros arquivos que geralmente são ignorados
 .DS_Store

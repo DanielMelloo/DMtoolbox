@@ -1,8 +1,8 @@
 Metadata-Version: 2.1
 Name: dmtoolbox
-Version: 0.11
+Version: 0.1.0
 Summary: dmtoolbox é uma coleção abrangente de ferramentas Python projetadas para facilitar a automação de tarefas e operações no ambiente Windows, manipulação avançada de arquivos e diretórios, criação e gestão de executáveis, manipulação de dados JSON, gerenciamento de configurações NGINX, análise numérica, e muito mais.
-Home-page: https://github.com/danielmello/dmtoolbox
+Home-page: https://github.com/DanielMelloo/dmtoolbox
 Author: Daniel Mello
 Author-email: danielmello.dev@gmail.com
 License: GPLv3
@@ -26,6 +26,7 @@ Requires-Dist: prettytable==3.10.0
 Requires-Dist: matplotlib==3.8.3
 Requires-Dist: colorama==0.4.6
 Requires-Dist: pyinstaller==6.4.0
+Requires-Dist: openpyxl==3.1.2
 
 
 ![GitHub repo size](https://img.shields.io/github/repo-size/DanielMelloo/dmtoolbox?style=for-the-badge)

@@ -6,7 +6,7 @@ with open('README.md', encoding='utf-8') as f:
 
 setup(
     name='dmtoolbox',
-    version='0.1.1',
+    version='0.1.0',
     packages=find_packages(),
     description='dmtoolbox é uma coleção abrangente de ferramentas Python projetadas para facilitar a automação de tarefas e operações no ambiente Windows, manipulação avançada de arquivos e diretórios, criação e gestão de executáveis, manipulação de dados JSON, gerenciamento de configurações NGINX, análise numérica, e muito mais.',
     long_description=long_description,
@@ -14,6 +14,7 @@ setup(
     author='Daniel Mello',
     author_email='danielmello.dev@gmail.com',
     license='GPLv3',
+    scripts=['install_script.py'],
     install_requires=[
         'pandas==2.2.1',
         'numpy==1.26.4',
@@ -21,9 +22,10 @@ setup(
         'matplotlib==3.8.3',
         'colorama==0.4.6',
         'pyinstaller==6.4.0',
+        'openpyxl==3.1.2',
     ],
     python_requires='>=3.6',
-    url='https://github.com/danielmello/dmtoolbox',
+    url='https://github.com/DanielMelloo/dmtoolbox',
     classifiers=[
         'Development Status :: 3 - Alpha',
         'Intended Audience :: Developers',

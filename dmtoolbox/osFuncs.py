@@ -4,12 +4,22 @@ import platform
 import sys
 import os
 import shutil
+import subprocess
 
-
+import ctypes
 
 
 # Functions
-__all__ = ['get_script_directory', 'is_admin', 'raise_admin', 'is_installed', 'write_file', 'copy_file', 'verify_dependencies']
+__all__ = ['get_script_directory',
+           'is_admin', 
+            'raise_admin', 
+            'is_installed',
+            'write_file',
+            'copy_file',
+            'verify_dependencies',
+            'in_virtualenv',
+            'try_import_or_install'
+        ]
 
 # Variables
 __all__ += ['DIR_PATH', 'PKG_DEPENDENCIES']
@@ -33,6 +43,23 @@ def get_script_directory():
 DIR_PATH = get_script_directory()
 
 
+def in_virtualenv():
+    return hasattr(sys, 'real_prefix') or (hasattr(sys, 'base_prefix') and sys.base_prefix != sys.prefix)
+
+
+def try_import_or_install(package_name, module_name=None):
+    if module_name is None:
+        module_name = package_name
+    try:
+        __import__(module_name)
+    except ImportError:
+        user_decision = input(f'O módulo {module_name} é necessário mas não foi encontrado. Deseja instalar {package_name}? (y/n): ')
+        if user_decision.lower() == 'y':
+            if not in_virtualenv() and platform.system() == 'Windows' and not is_admin():
+                raise_admin()
+            subprocess.check_call([sys.executable, '-m', 'pip', 'install', package_name])
+            
+
 def is_admin():
     os_name = platform.system()
     
@@ -46,8 +73,7 @@ def is_admin():
             return os.getuid() == 0
         except AttributeError:
             return False
-    
-    
+       
 def raise_admin():
     if not is_admin():
         os_name = platform.system()
