@@ -1,0 +1,17 @@
+# Ambiente virtual
+pkg_dev/
+*.pyc
+__pycache__/
+
+# Arquivos de lembrete pessoal
+módulo.txt
+del.txt
+nomes.txt
+a.txt
+token.txt
+
+# Outros arquivos que geralmente são ignorados
+.DS_Store
+.vscode/
+.idea/
+*.swp

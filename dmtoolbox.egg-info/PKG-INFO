@@ -1,3 +1,32 @@
+Metadata-Version: 2.1
+Name: dmtoolbox
+Version: 0.10
+Summary: dmtoolbox é uma coleção abrangente de ferramentas Python projetadas para facilitar a automação de tarefas e operações no ambiente Windows, manipulação avançada de arquivos e diretórios, criação e gestão de executáveis, manipulação de dados JSON, gerenciamento de configurações NGINX, análise numérica, e muito mais.
+Home-page: https://github.com/danielmello/dmtoolbox
+Author: Daniel Mello
+Author-email: danielmello.dev@example.com
+License: GPLv3
+Keywords: utils automation numpy pandas matplotlib
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: GNU General Public License v3 (GPLv3)
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: pandas==2.2.1
+Requires-Dist: numpy==1.26.4
+Requires-Dist: prettytable==3.10.0
+Requires-Dist: matplotlib==3.8.3
+Requires-Dist: colorama==0.4.6
+Requires-Dist: pyinstaller==6.4.0
+
 
 ![GitHub repo size](https://img.shields.io/github/repo-size/DanielMelloo/dmtoolbox?style=for-the-badge)
 ![GitHub forks](https://img.shields.io/github/forks/DanielMelloo/dmtoolbox?style=for-the-badge)
@@ -61,7 +90,7 @@ Cada módulo traz um conjunto de funcionalidades específicas, detalhadas a segu
 
 - Facilita a criação de cópias da aplicação no disco local C, útil para a distribuição de software ou instalação local rápida.
 
-### [exeGenerator.py](https://github.com/DanielMelloo/dmtoolbox/blob/main/dmtoolbox/exeGenerator.py)
+### exeGenerator.py
 - Utiliza o PyInstaller para converter scripts Python em executáveis autônomos, simplificando a distribuição de aplicações.
 
 ### [func.py](https://github.com/DanielMelloo/dmtoolbox/blob/main/dmtoolbox/func.py)
