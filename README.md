@@ -1,4 +1,3 @@
-**
 ![GitHub repo size](https://img.shields.io/github/repo-size/DanielMelloo/dmtoolbox?style=for-the-badge)
 ![GitHub forks](https://img.shields.io/github/forks/DanielMelloo/dmtoolbox?style=for-the-badge)
 ![Bitbucket open issues ](https://img.shields.io/bitbucket/issues/DanielMelloo/dmtoolbox?style=for-the-badge)
@@ -136,4 +135,4 @@ Encorajamos contribuições! Se deseja sugerir melhorias, corrigir bugs ou adici
 Este projeto é licenciado sob a GNU General Public License v3.0 - veja o arquivo [LICENSE](LICENSE) para mais detalhes.
 
 
-[⬆ Voltar ao topo](#dmtoolbox)**
+[⬆ Voltar ao topo](#dmtoolbox)
