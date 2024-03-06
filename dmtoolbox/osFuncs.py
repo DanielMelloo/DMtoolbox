@@ -17,7 +17,8 @@ __all__ = ['get_script_directory',
             'copy_file',
             'verify_dependencies',
             'in_virtualenv',
-            'try_import_or_install'
+            'try_import_or_install',
+            'run_command'
         ]
 
 # Variables
@@ -153,6 +154,20 @@ def verify_dependencies(dependencies=[], to_verify=''):
             return False
     return True
 
+def run_command(command):
+    try:
+        # Executa o comando e captura a saída (stdout) e o erro (stderr)
+        result = subprocess.run(command, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True, shell=True)
+        
+        # Verifica se o comando foi executado com sucesso (código de saída 0)
+        if result.returncode == 0:
+            print("Saída do comando:")
+            print(result.stdout)
+        else:
+            print("Erro ao executar o comando:")
+            print(result.stderr)
+    except Exception as e:
+        print(f"Ocorreu um erro ao executar o comando: {e}")
 
 if __name__ == '__main__':
     pass
