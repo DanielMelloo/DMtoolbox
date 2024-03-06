@@ -121,7 +121,7 @@ Em seguida, clone o repositório do GitHub ou baixe os arquivos do projeto diret
 
 Para ajudá-lo a começar, fornecemos uma série de exemplos práticos no diretório [`Exemplos de Código`](https://github.com/DanielMelloo/dmtoolbox/tree/main/Exemplos%20de%20Código). Aqui você encontrará amostras de código demonstrando como utilizar as funcionalidades disponíveis no dmtoolbox.
 
-Para acessar os exemplos, navegue até a pasta `Exemplos de Código`(https://github.com/DanielMelloo/dmtoolbox/tree/main/Exemplos%20de%20Código) no repositório do projeto ou clique no link.
+Para acessar os exemplos, navegue até a pasta [`Exemplos de Código`](https://github.com/DanielMelloo/dmtoolbox/tree/main/Exemplos%20de%20Código) no repositório do projeto ou clique no link.
 
 
 ## Contribuições

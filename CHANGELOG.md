@@ -1,4 +1,4 @@
-# DMToolBox v0.1.25 Release Notes
+# DMToolBox v0.1.26 Release Notes
 
 ### Data de Lançamento
 - 05 de Março de 2024
