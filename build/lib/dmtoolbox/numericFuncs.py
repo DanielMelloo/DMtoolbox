@@ -3,19 +3,19 @@
 #  Autor: Daniel Mello
 #  Data: 28/02/2024
 #  
-#  Objetivo do script:
-#  Este script contém uma coleção de funções e utilitários matemáticos e de manipulação de dados em Python.
+#  Objetivo do módulo:
+#  Este módulo contém uma coleção de funções e utilitários matemáticos e de manipulação de dados em Python.
 #  Ele oferece funcionalidades como operações matriciais, formatação de dados, exportação para Excel e plotagem de gráficos.
-#  O script foi projetado para ser reutilizável e modular, facilitando sua integração em diversos projetos.
+#  O módulo foi projetado para ser reutilizável e modular, facilitando sua integração em diversos projetos.
 #
 #  
 #  Nome: dmtoolbox
-#  Este script foi projetado para ser importado como um módulo chamado "dmtoolbox", que contém diversas funções 
+#  Este módulo foi projetado para ser importado como um módulo chamado "dmtoolbox", que contém diversas funções 
 #  úteis para operações matemáticas e manipulação de dados.
 #
 #
 #  Obs:
-#  - Certifique-se de que as dependências listadas no início do script estão instaladas para garantir o funcionamento correto.
+#  - Certifique-se de que as dependências listadas no início do módulo estão instaladas para garantir o funcionamento correto.
 #  - Algumas funções podem exigir determinadas versões ou configurações específicas das bibliotecas de terceiros importadas.
 #
 #
@@ -31,9 +31,9 @@ import matplotlib.pyplot as plt
 import inspect
 
 if __package__ is None or __package__ == '':
-    from dmtoolbox.osFuncs import *
+    from dmtoolbox.osFuncs import verify_dependencies
 else:
-    from .osFuncs import *
+    from .osFuncs import verify_dependencies
 
 # Functions
 __all__ = [
@@ -64,7 +64,37 @@ NUMERIC_DEPENDENCIES = ['pandas', 'openpyxl', 'jinja2']
 #  Formatar  #
 # ========== #
 
+
 def printMatrizNN (mat, headers='', transpose=True):
+    """
+    Imprime uma matriz formatada com PrettyTable.
+
+    Parâmetros:
+    ----------
+    - mat (list): A matriz a ser impressa.
+    - headers (str): Cabeçalho opcional para a tabela.
+    - transpose (bool): Se True, transpõe a matriz antes de imprimir.
+
+    Retorno:
+    --------
+    - None
+
+    Exemplo:
+    --------
+    >>> matriz = [[1, 2], [3, 4], [5, 6]]
+    >>> printMatrizNN(matriz, headers='A B', transpose=False)
+    +---+---+
+    | A | B |
+    +---+---+
+    | 1 | 2 |
+    | 3 | 4 |
+    | 5 | 6 |
+    +---+---+
+
+    Nota:
+    -----
+    Esta função utiliza a biblioteca PrettyTable para formatar a matriz para impressão.
+    """
         
     data=mat
     
@@ -86,6 +116,23 @@ def printMatrizNN (mat, headers='', transpose=True):
     print(table)    
     
 def printVetor(list_: list):
+    """
+    Imprime um vetor formatado.
+
+    Parâmetros:
+    ----------
+    - list_ (list): O vetor a ser impresso.
+
+    Retorno:
+    --------
+    - None
+
+    Exemplo:
+    --------
+    >>> vetor = [1, 2, 3]
+    >>> printVetor(vetor)
+    [1, 2, 3]
+    """
 
     print('[', end='')
     for i in range(len(list_)):
@@ -96,6 +143,30 @@ def printVetor(list_: list):
     print(']')
 
 def separador (matriz: list, tag):
+    """
+    Insere um separador e uma tag em uma matriz.
+
+    Parâmetros:
+    ----------
+    - matriz (list): A matriz a ser modificada.
+    - tag: A tag a ser inserida.
+
+    Retorno:
+    --------
+    - None
+
+    Exemplo:
+    --------
+    >>> matriz = [[1, 2], [3, 4]]
+    >>> separador(matriz, "Separação")
+    >>> printMatrizNN(matriz)
+    +---+---+
+    | 1 | 2 |
+    | 3 | 4 |
+    +---+---+
+    | Separação |
+    +-----------+
+    """
     
     linhaVazia = [''] * 10
     
@@ -104,6 +175,30 @@ def separador (matriz: list, tag):
     matriz.append(linhaVazia)
 
 def insereMudancaLinha (matriz: list, linhas: tuple):
+    """
+    Insere uma mensagem de mudança de linha em uma matriz.
+
+    Parâmetros:
+    ----------
+    - matriz (list): A matriz a ser modificada.
+    - linhas (tuple): As linhas que foram trocadas.
+
+    Retorno:
+    --------
+    - None
+
+    Exemplo:
+    --------
+    >>> matriz = [[1, 2], [3, 4]]
+    >>> insereMudancaLinha(matriz, (1, 2))
+    >>> printMatrizNN(matriz)
+    +---+---+
+    | 1 | 2 |
+    | 3 | 4 |
+    +---+---+
+    | A linha 1 trocou de lugar com a linha 2   (1, 2) |
+    +--------------------------------------------------+
+    """
  
     linhaVazia = [''] * 10
     #refatorar
@@ -115,6 +210,28 @@ def insereMudancaLinha (matriz: list, linhas: tuple):
     matriz.append(linhaVazia)
 
 def mat_transpose(mat: list, method='np'):
+    """
+    Transpõe uma matriz.
+
+    Parâmetros:
+    ----------
+    - mat (list): A matriz a ser transposta.
+    - method (str): O método de transposição a ser utilizado ('np', 'map', 'zip').
+
+    Retorno:
+    --------
+    - list: A matriz transposta.
+
+    Exemplo:
+    --------
+    >>> matriz = [[1, 2], [3, 4], [5, 6]]
+    >>> mat_transpose(matriz)
+    [[1, 3, 5], [2, 4, 6]]
+
+    Nota:
+    -----
+    Esta função suporta diferentes métodos de transposição: 'np' (usando numpy), 'map' e 'zip'.
+    """
     
     match method:
         case 'np':
@@ -131,7 +248,31 @@ def mat_transpose(mat: list, method='np'):
 #  Operações Matriciais  #
 # ====================== #
      
+     
 def mult_matrizes(matriz1, matriz2):
+    """
+    Multiplica duas matrizes.
+
+    Parâmetros:
+    ----------
+    - matriz1 (list): A primeira matriz a ser multiplicada.
+    - matriz2 (list): A segunda matriz a ser multiplicada.
+
+    Retorno:
+    --------
+    - list: O resultado da multiplicação das matrizes.
+
+    Exemplo:
+    --------
+    >>> matriz1 = [[1, 2], [3, 4]]
+    >>> matriz2 = [[1, 0], [0, 1]]
+    >>> mult_matrizes(matriz1, matriz2)
+    [[1, 2], [3, 4]]
+
+    Levanta:
+    --------
+    - ValueError: Se o número de colunas da matriz1 for diferente do número de linhas da matriz2.
+    """
     
     if len(matriz1[0]) != len(matriz2):
         raise ValueError("O número de colunas da matriz 1 deve ser igual ao número de linhas da matriz 2.")
@@ -154,7 +295,25 @@ def mult_matrizes(matriz1, matriz2):
 # ===================== #
 
 def round_nf(number=None, d_places=0, method='default', alt='default'):
+    """
+    Arredonda um número para um número especificado de casas decimais.
 
+    Parâmetros:
+    ----------
+    - number (float): O número a ser arredondado.
+    - d_places (int): O número de casas decimais para arredondar.
+    - method (str): O método de arredondamento a ser utilizado ('default', 'trunc', 'noround').
+    - alt (str): Modo alternativo de retorno de valor arredondado ('default', 'exib').
+
+    Retorno:
+    --------
+    - float: O número arredondado.
+
+    Exemplo:
+    --------
+    >>> round_nf(3.14159, 2)
+    3.14
+    """
 
     if alt == 'exib':
         return number, round_nf(number, d_places, method=method)
@@ -185,12 +344,19 @@ def count_d_places(number):
     Conta o número de casas decimais de um número.
 
     Parâmetros:
-    - numero (float): O número do qual as casas decimais serão contadas.
+    ----------
+    - number (float): O número do qual as casas decimais serão contadas.
 
-    Retorna:
+    Retorno:
+    --------
     - int: O número de casas decimais.
+
+    Exemplo:
+    --------
+    >>> count_d_places(3.14159)
+    5
     """
-    # Convertendo o número para string
+
     number_str = str(number)
     
     # Verificando se o número tem uma parte decimal
@@ -206,8 +372,28 @@ def count_d_places(number):
 #  Funções de arquvios  #
 # ===================== #
 
+
 def createFile(dataFrame: pd.DataFrame, file_name, file_path='./', index=False):
-    
+    """
+    Cria um arquivo Excel a partir de um DataFrame do pandas.
+
+    Parâmetros:
+    ----------
+    - dataFrame (pd.DataFrame): O DataFrame a ser exportado para o Excel.
+    - file_name (str): O nome do arquivo Excel.
+    - file_path (str): O caminho onde o arquivo será salvo.
+    - index (bool): Se True, inclui o índice do DataFrame no arquivo Excel.
+
+    Retorno:
+    --------
+    - bool: True se o arquivo foi criado com sucesso, False caso contrário.
+
+    Exemplo:
+    --------
+    >>> df = pd.DataFrame({'A': [1, 2], 'B': [3, 4]})
+    >>> createFile(df, 'output', './')
+    True
+    """
     complete_name = file_path + file_name + '.xlsx'
     try:    
         dataFrame.to_excel(complete_name, engine='openpyxl', index=index)
@@ -247,7 +433,28 @@ def createFile(dataFrame: pd.DataFrame, file_name, file_path='./', index=False):
                 print('\nOpção inválida. Tente novamente.')
   
 def export_to_excel(mat, path='./', caption=None, transpose = False, headers=None, file_name='test-'+datetime.now().strftime("%Y-%m-%d_%H-%M-%S")):
-    
+    """
+    Exporta uma matriz para um arquivo Excel.
+
+    Parâmetros:
+    ----------
+    - mat (list): A matriz a ser exportada.
+    - path (str): O caminho onde o arquivo será salvo.
+    - caption (str): Legenda opcional para o arquivo Excel.
+    - transpose (bool): Se True, transpõe a matriz antes da exportação.
+    - headers (list): Cabeçalhos personalizados para as colunas.
+    - file_name (str): O nome do arquivo Excel.
+
+    Retorno:
+    --------
+    - bool: True se o arquivo foi exportado com sucesso, False caso contrário.
+
+    Exemplo:
+    --------
+    >>> matriz = [[1, 2], [3, 4]]
+    >>> export_to_excel(matriz, path='./', caption='Dados de exemplo', transpose=False, headers=['A', 'B'], file_name='output')
+    True
+    """
     if not verify_dependencies(NUMERIC_DEPENDENCIES):
         return  # Alguma dependência está faltando, então a função termina aqui
     
@@ -295,7 +502,33 @@ def export_to_excel(mat, path='./', caption=None, transpose = False, headers=Non
 
 
 def plot_2d_function_and_compare(ydx, x_range, x_points, y_points, angles, arrow_length=0.2, rad=True):
+    """
+    Plota uma função 2D e compara com pontos dados e setas direcionais.
 
+    Parâmetros:
+    ----------
+    - ydx (function): A função a ser plotada.
+    - x_range (tuple): O intervalo de valores de x para plotagem.
+    - x_points (list): Os valores de x dos pontos dados.
+    - y_points (list): Os valores de y dos pontos dados.
+    - angles (list): Os ângulos das setas direcionais.
+    - arrow_length (float): O comprimento das setas direcionais.
+    - rad (bool): Se True, os ângulos estão em radianos; caso contrário, em graus.
+
+    Retorno:
+    --------
+    - None
+
+    Exemplo:
+    --------
+    >>> import numpy as np
+    >>> def ydx(x): return np.sin(x)
+    >>> x_range = (0, 2*np.pi)
+    >>> x_points = [np.pi/4, 3*np.pi/4]
+    >>> y_points = [ydx(x) for x in x_points]
+    >>> angles = [np.pi/3, np.pi/4]
+    >>> plot_2d_function_and_compare(ydx, x_range, x_points, y_points, angles)
+    """
     x_values = np.linspace(x_range[0], x_range[1], 400)
     y_values = [ydx(x) for x in x_values]
 
@@ -336,6 +569,37 @@ def plot_2d_function_and_compare(ydx, x_range, x_points, y_points, angles, arrow
     plt.show()
 
 def plot_3d_function_and_arrows(ydx, x_range, y_range, x_points, y_points, z_points, angles, arrow_length=0.2, rad=True):
+    """
+    Plota uma função 3D e setas direcionais.
+
+    Parâmetros:
+    ----------
+    - ydx (function): A função a ser plotada.
+    - x_range (tuple): O intervalo de valores de x para plotagem.
+    - y_range (tuple): O intervalo de valores de y para plotagem.
+    - x_points (list): Os valores de x dos pontos dados.
+    - y_points (list): Os valores de y dos pontos dados.
+    - z_points (list): Os valores de z dos pontos dados.
+    - angles (list): Os ângulos das setas direcionais.
+    - arrow_length (float): O comprimento das setas direcionais.
+    - rad (bool): Se True, os ângulos estão em radianos; caso contrário, em graus.
+
+    Retorno:
+    --------
+    - None
+
+    Exemplo:
+    --------
+    >>> import numpy as np
+    >>> def ydx(x, y): return np.sin(x) + np.cos(y)
+    >>> x_range = (0, 2*np.pi)
+    >>> y_range = (0, 2*np.pi)
+    >>> x_points = [np.pi/4, 3*np.pi/4]
+    >>> y_points = [np.pi/6, np.pi/3]
+    >>> z_points = [ydx(x, y) for x, y in zip(x_points, y_points)]
+    >>> angles = [np.pi/3, np.pi/4]
+    >>> plot_3d_function_and_arrows(ydx, x_range, y_range, x_points, y_points, z_points, angles)
+    """
     fig = plt.figure()
     ax = fig.add_subplot(111, projection='3d')
 
@@ -374,6 +638,35 @@ def plot_3d_function_and_arrows(ydx, x_range, y_range, x_points, y_points, z_poi
     
     
 def plot_and_compare(ydx, x_range, x_points, y_points, angles, arrow_length=0.2, rad=True, y_range = None, z_points = None):
+    """
+    Plota uma função e compara com pontos dados e setas direcionais.
+
+    Parâmetros:
+    ----------
+    - ydx (function): A função a ser plotada.
+    - x_range (tuple): O intervalo de valores de x para plotagem.
+    - x_points (list): Os valores de x dos pontos dados.
+    - y_points (list): Os valores de y dos pontos dados.
+    - angles (list): Os ângulos das setas direcionais.
+    - arrow_length (float): O comprimento das setas direcionais.
+    - rad (bool): Se True, os ângulos estão em radianos; caso contrário, em graus.
+    - y_range (tuple): O intervalo de valores de y para plotagem (para funções 3D).
+    - z_points (list): Os valores de z dos pontos dados (para funções 3D).
+
+    Retorno:
+    --------
+    - None
+
+    Exemplo:
+    --------
+    >>> import numpy as np
+    >>> def ydx(x): return np.sin(x)
+    >>> x_range = (0, 2*np.pi)
+    >>> x_points = [np.pi/4, 3*np.pi/4]
+    >>> y_points = [ydx(x) for x in x_points]
+    >>> angles = [np.pi/3, np.pi/4]
+    >>> plot_and_compare(ydx, x_range, x_points, y_points, angles)
+    """
     if get_number_of_arguments(ydx) == 1:
         return plot_2d_function_and_compare(ydx = ydx,
                                            x_range = x_range, 
@@ -398,6 +691,24 @@ def plot_and_compare(ydx, x_range, x_points, y_points, angles, arrow_length=0.2,
     return print ('Função inválida utilziada')
 
 def get_number_of_arguments(func):
+    """
+    Retorna o número de argumentos de uma função.
+
+    Parâmetros:
+    ----------
+    - func (callable): A função para a qual o número de argumentos será calculado.
+
+    Retorno:
+    --------
+    - int: O número de argumentos da função.
+
+    Exemplo:
+    --------
+    >>> def func(a, b, c):
+    ...     pass
+    >>> get_number_of_arguments(func)
+    3
+    """
     sig = inspect.signature(func)
     return len(sig.parameters)
 

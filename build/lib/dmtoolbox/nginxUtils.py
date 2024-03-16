@@ -4,28 +4,22 @@ import platform
 import os
 import re
 
-
-
+    
 if __package__ is None or __package__ == '':
-    from dmtoolbox.portTools import *
-    from dmtoolbox.nginxDefaults import *
-    from dmtoolbox.osFuncs import *
+    from dmtoolbox.portTools import AVAILABLE_PORT
+    from dmtoolbox.nginxDefaults import NGINX_WIN_DEFAULT
     
 else:
-    from .portTools import *
-    from .nginxDefaults import *
-    from .osFuncs import *
-
+    from .portTools import AVAILABLE_PORT 
+    from .nginxDefaults import NGINX_WIN_DEFAULT  
+    # from .osFuncs import *
     
-    
-
-    
-# Functions
-__all__ = ['start_nginx', 'stop_nginx', 'is_nginx_running', 'setup_nginx', 'nginx_controller']
+# Objects
+__all__ = ['nginx_controller']
 
 
 # Variables
-__all__ += ['NGINX_ROOT_PATH', 'DEFAULT_DIRECTIVES_EX1', 'DEFAULT_DIRECTIVES_IP', 'DEFAULT_NGINX_CONTENT_IP', 'DEFAULT_NGINX_CONTENT_EX1']
+__all__ += ['DEFAULT_DIRECTIVES_EX1', 'DEFAULT_DIRECTIVES_IP', 'DEFAULT_NGINX_CONTENT_IP', 'DEFAULT_NGINX_CONTENT_EX1']
 
 
 # Classes
@@ -45,20 +39,25 @@ DEFAULT_DIRECTIVES_EX1 = {
 }
 
 DEFAULT_DIRECTIVES_IP = {
-    'listen': '80 default_server',
-    'listen': '[::]:80 default_server',
-    'proxy_pass':lambda value: value.startswith('http://127.0.0.1:')
+    'listen': '80',
+    'proxy_pass':lambda value: value.startswith('http://localhost:'),
+    'proxy_set_header' : 'Host $host;',
+    'proxy_set_header' : 'X-Real-IP $remote_addr;',
+    'proxy_set_header' : 'X-Forwarded-For $proxy_add_x_forwarded_for;',
 }
 
 DEFAULT_NGINX_CONTENT_IP = """
     server {
-        listen 80 default_server;
-        listen [::]:80 default_server;
-        
+        listen 80;
+        server_name  189.39.241.190;
+
         location / {
-            proxy_pass http://127.0.0.1:5000;
+            proxy_pass http://localhost:49200;
+            proxy_set_header Host $host;
+            proxy_set_header X-Real-IP $remote_addr;
+            proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
         }
-    }
+    }    
 """
 
 DEFAULT_NGINX_CONTENT_EX1 = """
@@ -89,7 +88,7 @@ class NginxController(ABC):
     - FOUND_DIRECTIVES : dict
         - Armazena as diretivas encontradas durante a verificação da configuração do NGINX.
     """
-    CONSOLE_OUT_ALL = True
+    CONSOLE_OUT_ALL = False
     QUIET_NGINX = False
     FOUND_DIRECTIVES = {}
 
@@ -1068,9 +1067,5 @@ else:
 
 
 if __name__ == '__main__':
-    nginx_controller.setup_nginx(DEFAULT_DIRECTIVES_IP, DEFAULT_NGINX_CONTENT_IP)
-    
-    # nginx_controller.stop_nginx()
-    
-    
+    # nginx_controller.setup_nginx(DEFAULT_DIRECTIVES_IP, DEFAULT_NGINX_CONTENT_IP)
     pass

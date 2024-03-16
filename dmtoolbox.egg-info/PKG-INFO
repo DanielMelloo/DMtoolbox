@@ -1,6 +1,6 @@
 Metadata-Version: 2.1
 Name: dmtoolbox
-Version: 0.1.26
+Version: 0.1.27
 Summary: dmtoolbox é uma coleção abrangente de ferramentas Python projetadas para facilitar a automação de tarefas e operações no ambiente Windows, manipulação avançada de arquivos e diretórios, criação e gestão de executáveis, manipulação de dados JSON, gerenciamento de configurações NGINX, análise numérica, e muito mais.
 Home-page: https://github.com/DanielMelloo/dmtoolbox
 Author: Daniel Mello

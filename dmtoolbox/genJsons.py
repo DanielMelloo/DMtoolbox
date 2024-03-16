@@ -13,6 +13,19 @@ __all__ += []
 
 
 def file_to_json(file_path):
+    """
+    Lê o conteúdo de um arquivo JSON e retorna como um objeto Python.
+
+    Parâmetros:
+    -----------
+    - file_path: str
+        - O caminho do arquivo JSON a ser lido.
+
+    Retorno:
+    --------
+    - dict ou list
+        - O conteúdo do arquivo JSON convertido em um objeto Python (dicionário ou lista).
+    """
     try:
         with open(file_path, 'r', encoding='utf-8') as file:
             return file.read()
@@ -21,6 +34,20 @@ def file_to_json(file_path):
         return None
 
 def save_json_to_json_file(json_content, file_path):
+    """
+    Salva o conteúdo de um objeto Python (dicionário ou lista) como um arquivo JSON.
+
+    Parâmetros:
+    -----------
+    - json_content: dict ou list
+        - O conteúdo a ser salvo como JSON.
+    - file_path: str
+        - O caminho onde o arquivo JSON será salvo.
+
+    Nota:
+    -----
+    Esta função usa 'json.dump' para converter o objeto Python em JSON e salvá-lo no arquivo especificado.
+    """
     # Garantindo que o diretório onde o arquivo será salvo existe
     os.makedirs(os.path.dirname(file_path) or '.', exist_ok=True)
     
@@ -33,6 +60,24 @@ def save_json_to_json_file(json_content, file_path):
         print(f"Erro ao salvar o arquivo JSON: {e}")
 
 def update_variable_declaration_in_script(file_path, script_path, variable_name):
+    """
+    Atualiza a declaração de uma variável em um script Python com o conteúdo de um arquivo JSON.
+
+    Parâmetros:
+    -----------
+    - file_path: str
+        - O caminho do arquivo JSON que contém o conteúdo a ser inserido no script.
+    - script_path: str
+        - O caminho do script Python onde a declaração da variável será atualizada.
+    - variable_name: str
+        - O nome da variável no script a ser atualizada.
+
+    Nota:
+    -----
+    Esta função lê o conteúdo do arquivo JSON especificado e prepara uma nova declaração de variável
+    com esse conteúdo. Em seguida, ela substitui a declaração existente da variável no script
+    pelo novo conteúdo preparado.
+    """
     try:
         # Abre o arquivo que contém a string JSON e lê seu conteúdo
         with open(file_path, 'r', encoding='utf-8') as file:

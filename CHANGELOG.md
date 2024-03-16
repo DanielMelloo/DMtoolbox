@@ -1,3 +1,37 @@
+# DMToolBox v0.1.27 Release Notes
+
+### Data de Lançamento
+- 15 de Março de 2024
+
+### Destaques
+- Otimização significativa do desempenho em diversos módulos.
+- Aprimoramento da documentação em toda a biblioteca.
+
+### Novos Recursos
+- Nenhum novo recurso adicionado nesta versão.
+
+### Melhorias
+- Significativa otimização de desempenho em vários módulos, resultando em execuções mais rápidas.
+- Melhorias adicionais na documentação para tornar o uso dos módulos mais claro e intuitivo.
+
+### Correções de Bugs
+- Nenhuma correção de bug neste lançamento.
+
+### Problemas Conhecidos
+- A função `setup_available_port` do módulo `portTools` ainda está com problemas para identificar a porta disponível devido a incompatibilidades na verificação com o servidor web e o servidor local.
+
+### Instruções de Atualização
+- Utilize o comando `pip install dmtoolbox --upgrade` para atualizar para a última versão.
+
+### Agradecimentos
+- Agradecemos à comunidade do GitHub por seus valiosos comentários e sugestões que ajudaram a tornar o DMToolBox ainda melhor.
+
+### Mais Informações
+Para obter informações detalhadas sobre a utilização dos módulos atualizados, consulte a documentação atualizada no diretório [`Exemplos de Código`](https://github.com/DanielMelloo/dmtoolbox/tree/main/Exemplos%20de%20Código).
+
+Para suporte adicional ou relatar problemas, por favor, abra uma [issue no GitHub](https://github.com/DanielMelloo/dmtoolbox/issues). Estamos sempre abertos ao seu feedback para continuarmos melhorando o DMToolBox.
+
+
 # DMToolBox v0.1.26 Release Notes
 
 ### Data de Lançamento

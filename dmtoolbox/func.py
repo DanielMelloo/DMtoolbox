@@ -17,7 +17,18 @@ __all__ = ['get_folder_size',
 def get_folder_size(folder_path):
     """
     Retorna o tamanho total de uma pasta em bytes.
+
+    Parâmetros:
+    -----------
+    - folder_path: str
+        - O caminho da pasta cujo tamanho será calculado.
+
+    Retorno:
+    --------
+    - int
+        - O tamanho total da pasta em bytes.
     """
+
     total_size = 0
     
     # Itera sobre todos os arquivos e subpastas na pasta
@@ -30,6 +41,14 @@ def get_folder_size(folder_path):
     return total_size
 
 def find_default_paths():
+    """
+    Encontra os caminhos padrão de pastas comuns, como Área de Trabalho, Downloads, Documentos, etc.
+
+    Retorno:
+    --------
+    - dict
+        - Um dicionário contendo os nomes das pastas e seus caminhos correspondentes.
+    """
     # Caminhos padrão para tentar
     default_paths = OrderedDict([
         ('Área de Trabalho', ['Desktop', 'Área de Trabalho']),
@@ -67,6 +86,13 @@ def find_default_paths():
     return found_paths
 
 def find_script_dir():
+    """
+    Encontra o diretório do script atual.
+
+    Nota:
+    -----
+    Esta função define uma variável global `GLOBAL_SCRIPT_DIR` que armazena o diretório do script atual.
+    """
     global GLOBAL_SCRIPT_DIR
     
     script_dir = os.path.dirname(os.path.realpath(__file__))
@@ -77,6 +103,18 @@ def find_script_dir():
         print(f"Erro: Diretório '{script_dir}' não encontrado")
 
 def find_style_sheet_path(file_name):
+    """
+    Encontra o caminho para o arquivo de folha de estilo.
+
+    Parâmetros:
+    -----------
+    - file_name: str
+        - O nome do arquivo de folha de estilo.
+
+    Nota:
+    -----
+    Esta função define uma variável global `GLOBAL_STYLE_PATH` que armazena o caminho para o arquivo de folha de estilo.
+    """
     global GLOBAL_STYLE_PATH
     global GLOBAL_SCRIPT_DIR
 
@@ -90,17 +128,51 @@ def find_style_sheet_path(file_name):
 def get_file_size(file_path):
     """
     Retorna o tamanho de um arquivo em bytes.
+
+    Parâmetros:
+    -----------
+    - file_path: str
+        - O caminho do arquivo.
+
+    Retorno:
+    --------
+    - int
+        - O tamanho do arquivo em bytes.
     """
     return os.path.getsize(file_path)
 
 def get_modification_date(file_path):
     """
     Retorna a data de modificação de um arquivo ou pasta.
+
+    Parâmetros:
+    -----------
+    - file_path: str
+        - O caminho do arquivo ou pasta.
+
+    Retorno:
+    --------
+    - str
+        - A data de modificação no formato ISO.
     """
     timestamp = os.path.getmtime(file_path)
     return datetime.fromtimestamp(timestamp).isoformat()
 
 def format_size(size):
+    """
+    Formata um tamanho em bytes para uma string legível.
+
+    Parâmetros:
+    -----------
+    - size: int
+        - O tamanho em bytes.
+
+    Retorno:
+    --------
+    - str
+        - O tamanho formatado como uma string legível.
+    """
+
     for unit in ['B', 'KB', 'MB', 'GB', 'TB']:
         if size < 1024:
             return f"{size:.2f} {unit}"
@@ -108,5 +180,22 @@ def format_size(size):
     return f"{size:.2f} PB"
 
 def format_date(timestamp):
-    """Formata a data de modificação em um formato legível."""
+    """
+    Formata um tamanho em bytes para uma string legível.
+
+    Parâmetros:
+    -----------
+    - size: int
+        - O tamanho em bytes.
+
+    Retorno:
+    --------
+    - str
+        - O tamanho formatado como uma string legível.
+    """
+
     return datetime.fromtimestamp(timestamp).strftime('%Y-%m-%d %H:%M:%S')
+
+
+if __name__ == '__main__':
+    pass
