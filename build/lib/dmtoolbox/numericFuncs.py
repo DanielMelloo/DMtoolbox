@@ -49,7 +49,8 @@ __all__ = [
     'export_to_excel',
     'plot_2d_function_and_compare',
     'plot_3d_function_and_arrows',
-    'plot_and_compare'
+    'plot_and_compare',
+    'plot_2d_function_tlwa'
 ]
 
 
@@ -500,6 +501,75 @@ def export_to_excel(mat, path='./', caption=None, transpose = False, headers=Non
 #  Plot Functions  #
 # ================ #
 
+def plot_2d_function_tlwa(y, y_prime, x_points, y_points, directions=True, show_lines=False, length=0.75, x_margin=0):
+    """
+    Descrição:
+    ----------
+    Esta função plota uma função bidimensional, juntamente com pontos especificados em x e y. Ela permite traçar retas tangentes à curva 
+    a partir dos pontos fornecidos e mostra a diferença em y entre o ponto dado e a curva para comparação de dados obtidos numericamente 
+    e uma função analítica.
+
+    Parâmetros:
+    -----------
+    - y: função
+        - A função bidimensional a ser plotada.
+    - y_prime: função
+        - A derivada da função bidimensional.
+    - x_points: array-like
+        - Os pontos x dos quais deseja-se traçar as tangentes.
+    - y_points: array-like
+        - Os valores y correspondentes aos pontos x, onde deseja-se traçar as tangentes.
+    - directions: bool (opcional, padrão=True)
+        - Indica se as direções das tangentes devem ser mostradas ou não.
+    - show_lines: bool (opcional, padrão=False)
+        - Indica se as linhas verticais até a curva devem ser mostradas ou não.
+    - length: float (opcional, padrão=0.75)
+        - O comprimento das setas que representam as tangentes.
+    - x_margin: float (opcional, padrão=0)
+        - A margem adicional adicionada aos limites dos valores x ao plotar a curva.
+
+    Exemplo:
+    --------
+    >>> y = lambda x: np.sin(x) + np.cos(x)
+    >>> y_prime = lambda x: np.cos(x) - np.sin(x)
+    >>> x_points = [1, 2, 3, 4]
+    >>> y_points = [y(x) for x in x_points]
+    >>> plot_2d_function_tlwa(y, y_prime, x_points, y_points)
+    """
+    x_range = np.linspace(min(x_points)-x_margin, max(x_points)+x_margin, 400)
+    y_val = y(x_range)
+    
+    plt.figure(figsize=(8, 8))
+    plt.plot(x_range, y_val, label="y(x)", zorder=1)  # zorder controla a ordem de plotagem
+    
+    # Calcular os limites de y, incluindo y_points
+    y_min, y_max = min(np.min(y_val), np.min(y_points)), max(np.max(y_val), np.max(y_points))
+    
+    arrow_length = length * (max(x_points) - min(x_points)) / 10
+    arrow_head_width = arrow_length / 5
+    arrow_head_length = arrow_length / 3
+    
+    for x_tangent, y_tangent in zip(x_points, y_points):
+        slope_tangent = y_prime(x_tangent)
+        
+        dx = arrow_length / np.sqrt(1 + slope_tangent**2)
+        dy = slope_tangent * dx
+        
+        if directions:
+            plt.arrow(x_tangent, y_tangent, dx, dy, head_width=arrow_head_width, head_length=arrow_head_length, fc='black', ec='black', length_includes_head=True, zorder=3)
+        
+        if show_lines:
+            y_curve_at_x = y(x_tangent)  # Valor de y na curva para o x atual
+            plt.vlines(x_tangent, ymin=y_tangent, ymax=y_curve_at_x, color='gray', linestyle='--', zorder=2)
+    
+    plt.scatter(x_points, y_points, color='red', s=50, alpha=0.8, zorder=4)  # Pontos de tangência
+    plt.xlabel("x")
+    plt.ylabel("y")
+    plt.legend()
+    plt.xlim([min(x_range), max(x_range)])
+    plt.ylim([y_min - 1, y_max + 1])
+    plt.axis('equal')
+    plt.show()
 
 def plot_2d_function_and_compare(ydx, x_range, x_points, y_points, angles, arrow_length=0.2, rad=True):
     """
