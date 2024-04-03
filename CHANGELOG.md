@@ -1,3 +1,35 @@
+# DMToolBox v0.1.28.1 Release Notes
+
+### Data de Lançamento
+- 3 de Abril de 2024
+
+### Destaques
+- Isolamento do módulo `nginxUtils` devido a um bug na resolução de caminhos.
+
+### Novos Recursos
+- Nenhum novo recurso adicionado nesta versão.
+
+### Melhorias
+- Nenhuma melhoria implementada nesta versão.
+
+### Correções de Bugs
+- Isolamento do módulo `nginxUtils` devido a um bug na resolução de caminhos. O módulo será desativado nesta versão até que o bug seja corrigido.
+
+### Problemas Conhecidos
+- Nenhum problema adicional conhecido nesta versão.
+
+### Instruções de Atualização
+- Utilize o comando `pip install dmtoolbox --upgrade` para atualizar para a última versão.
+
+### Agradecimentos
+- Agradecemos à comunidade do GitHub por seu apoio contínuo.
+
+### Mais Informações
+Para mais informações sobre o DMToolBox, consulte a documentação atualizada no diretório [`Exemplos de Código`](https://github.com/DanielMelloo/dmtoolbox/tree/main/Exemplos%20de%20Código).
+
+Para relatar problemas ou fornecer feedback, abra uma [issue no GitHub](https://github.com/DanielMelloo/dmtoolbox/issues). Seu feedback é fundamental para melhorarmos o DMToolBox.
+
+
 # DMToolBox v0.1.28 Release Notes
 
 ### Data de Lançamento

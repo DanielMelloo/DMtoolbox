@@ -1,7 +1,7 @@
 from .fmfunc import *
 from .genJsons import *
 from .nginxDefaults import *
-from .nginxUtils import *
+# from .nginxUtils import *
 from .numericFuncs import *
 from .osFuncs import *
 from .portTools import *
@@ -10,7 +10,7 @@ from .portTools import *
 __all__ = (fmfunc.__all__ +
            genJsons.__all__ +
            nginxDefaults.__all__ +
-           nginxUtils.__all__ +
+        #    nginxUtils.__all__ +
            numericFuncs.__all__ +
            osFuncs.__all__ +
            portTools.__all__)
