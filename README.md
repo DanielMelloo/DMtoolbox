@@ -48,7 +48,7 @@ Este pacote Python é uma coleção abrangente de ferramentas projetadas para fa
 Cada módulo traz um conjunto de funcionalidades específicas, detalhadas a seguir:
 
 
-### [fmfunc.py](https://github.com/DanielMelloo/dmtoolbox/blob/main/dmtoolbox/dmfunc.py)
+### [fmfunc.py](https://github.com/DanielMelloo/dmtoolbox/blob/main/dmtoolbox/fmfunc.py)
 - Oferece um conjunto diversificado de funções utilitárias para operações comuns, como manipulação de datas, tamanhos de arquivos, e caminhos de diretórios.
 
 ### [genJsons.py](https://github.com/DanielMelloo/dmtoolbox/blob/main/dmtoolbox/genJsons.py)
