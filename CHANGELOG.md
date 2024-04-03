@@ -1,3 +1,37 @@
+# DMToolBox v0.1.28 Release Notes
+
+### Data de Lançamento
+- 03 de Abril de 2024
+
+### Destaques
+- Adição da função `plot_2d_function_tlwa` para plotagem de funções 2D.
+- Mudança do nome do módulo `func` para `fmfunc` para maior clareza e consistência.
+- Correção de dependências, isolando módulos nativos do Windows no add-on `dmtoolbox-win`, melhorando a compatibilidade do pacote `dmtoolbox`.
+
+### Novos Recursos
+- Adicionada a função `plot_2d_function_tlwa` para plotagem de funções 2D.
+- Renomeado o módulo `func` para `fmfunc` para maior clareza e consistência.
+
+### Melhorias
+- Melhorada a compatibilidade do pacote `dmtoolbox` ao isolar módulos nativos do Windows no add-on `dmtoolbox-win`.
+
+### Correções de Bugs
+- Nenhuma correção de bug neste lançamento.
+
+### Problemas Conhecidos
+- Nenhum problema conhecido neste lançamento.
+
+### Instruções de Atualização
+- Utilize o comando `pip install dmtoolbox --upgrade` para atualizar para a última versão.
+
+### Agradecimentos
+- Agradecemos à comunidade do GitHub por seus valiosos comentários e sugestões que contribuíram para essas melhorias.
+
+### Mais Informações
+Para obter informações detalhadas sobre a utilização dos módulos atualizados, consulte a documentação atualizada no diretório [`Exemplos de Código`](https://github.com/DanielMelloo/dmtoolbox/tree/main/Exemplos%20de%20Código).
+
+Para suporte adicional ou relatar problemas, por favor, abra uma [issue no GitHub](https://github.com/DanielMelloo/dmtoolbox/issues). Estamos sempre abertos ao seu feedback para continuarmos melhorando o DMToolBox.
+
 # DMToolBox v0.1.27 Release Notes
 
 ### Data de Lançamento

@@ -11,7 +11,7 @@
   - [Descrição](#descrição)
   - [Funcionalidades](#funcionalidades)
   - [Funcionalidades dos Módulos](#funcionalidades-dos-módulos)
-    - [func.py](#funcpy)
+    - [fmfunc.py](#fmfuncpy)
     - [genJsons.py](#genjsonspy)
     - [nginxDefaults.py  e nginxUtils.py](#nginxdefaultspy--e-nginxutilspy)
     - [numericFuncs.py](#numericfuncspy)
@@ -48,7 +48,7 @@ Este pacote Python é uma coleção abrangente de ferramentas projetadas para fa
 Cada módulo traz um conjunto de funcionalidades específicas, detalhadas a seguir:
 
 
-### [func.py](https://github.com/DanielMelloo/dmtoolbox/blob/main/dmtoolbox/func.py)
+### [fmfunc.py](https://github.com/DanielMelloo/dmtoolbox/blob/main/dmtoolbox/dmfunc.py)
 - Oferece um conjunto diversificado de funções utilitárias para operações comuns, como manipulação de datas, tamanhos de arquivos, e caminhos de diretórios.
 
 ### [genJsons.py](https://github.com/DanielMelloo/dmtoolbox/blob/main/dmtoolbox/genJsons.py)

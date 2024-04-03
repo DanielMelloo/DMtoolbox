@@ -1,4 +1,4 @@
-from .func import *
+from .fmfunc import *
 from .genJsons import *
 from .nginxDefaults import *
 from .nginxUtils import *
@@ -7,7 +7,7 @@ from .osFuncs import *
 from .portTools import *
 
 # Definição de __all__ para exportar corretamente os símbolos de cada módulo
-__all__ = (func.__all__ +
+__all__ = (fmfunc.__all__ +
            genJsons.__all__ +
            nginxDefaults.__all__ +
            nginxUtils.__all__ +
